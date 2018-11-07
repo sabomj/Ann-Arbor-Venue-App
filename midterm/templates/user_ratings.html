@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+{% block content1 %}
+<h1>Rate a Venue</h1>
+
+<form method="POST">
+
+	{{ form.venue_name.label() }} {{ form.venue_name() }} <br>
+	{{ form.rating.label() }} {{ form.rating() }} <br>
+  {{ form.hidden_tag() }}
+	{{ form.submit() }}
+</form>
+<div>
+{% for message in get_flashed_messages() %}
+  <strong>  {{ message }} </strong>
+
+{% endfor %}
+<div>
+
+{% if all_user_ratings%}
+  <h3>User Venue Ratings</h3>
+  {%for x in all_user_ratings%}
+    <p><b>{{x.venue_name}}: </b>{{x.rating}}</p>
+    {%endfor%}
+  {%endif%}
+
+
+{% endblock %}

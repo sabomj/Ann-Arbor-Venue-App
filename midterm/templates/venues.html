@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+
+<h1>All Venues Searched</h1>
+
+{% for x in venues %}
+	<p><b>Name of Venue: </b>{{ x }}</p>
+{% endfor %}
+
+{% endblock %}
